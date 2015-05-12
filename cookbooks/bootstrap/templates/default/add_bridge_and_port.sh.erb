@@ -1,0 +1,6 @@
+# A script to setup br-ex and connect it to 'eth2' interface
+# Usage:
+#   $ ./add_bridge_and_port.sh
+sudo ovs-vsctl add-br br-ex
+sudo ovs-vsctl add-port br-ex eth2
+sudo ovs-vsctl show

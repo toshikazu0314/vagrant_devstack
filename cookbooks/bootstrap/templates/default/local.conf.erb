@@ -1,0 +1,60 @@
+# reference:
+#   neutron:
+#     https://github.com/openstack-dev/devstack/blob/master/doc/source/guides/neutron.rst
+#
+[[local|localrc]]
+ADMIN_PASSWORD=password
+MYSQL_PASSWORD=password
+RABBIT_PASSWORD=password
+SERVICE_PASSWORD=password
+SERVICE_TOKEN=tokentoken
+#
+HOST_IP=192.168.40.10
+FIXED_RANGE=172.16.0.0/24
+NETWORK_GATEWAY=172.16.0.1
+FLOATING_RANGE=192.168.41.128/25
+PUBLIC_NETWORK_GATEWAY=192.168.41.129
+Q_USE_SECGROUP=True
+ENABLE_TENANT_VLANS=True
+TENANT_VLAN_RANGE=1000:1999
+PHYSICAL_NETWORK=default
+OVS_PHYSICAL_BRIDGE=br-ex
+#
+LOGFILE=$DEST/logs/stack.sh.log
+LOGDAYS=2
+#
+SWIFT_HASH=66a3d6b56c1f479c8b4e70ab5c2000f5
+SWIFT_REPLICAS=1
+SWIFT_DATA_DIR=$DEST/data
+#
+enable_service s-proxy s-object s-container s-account
+disable_service n-net
+enable_service q-svc
+enable_service q-agt
+enable_service q-dhcp
+enable_service q-l3
+enable_service q-meta
+enable_service tempest
+#
+CINDER_REPO=/vagrant_openstack/cinder
+GLANCE_REPO=/vagrant_openstack/glance
+HORIZON_REPO=/vagrant_openstack/horizon
+KEYSTONE_REPO=/vagrant_openstack/keystone
+KEYSTONECLIENT_REPO=/vagrant_openstack/python-keystoneclient
+NOVA_REPO=/vagrant_openstack/nova
+NOVACLIENT_REPO=/vagrant_openstack/python-novaclient
+NEUTRON_REPO=/vagrant_openstack/neutron
+SWIFT_REPO=/vagrant_openstack/swift
+TEMPEST_REPO=/vagrant_openstack/tempest
+REQUIREMENTS_REPO=/vagrant_openstack/requirements
+NOVNC_REPO=/vagrant_openstack/kanaka/noVNC
+#
+CINDER_BRANCH=2015.1.0
+GLANCE_BRANCH=2015.1.0
+#HORIZON_BRANCH=2015.1.0
+KEYSTONE_BRANCH=2015.1.0
+NOVA_BRANCH=2015.1.0
+NEUTRON_BRANCH=2015.1.0
+#NOVACLIENT_BRANCH=milestone-proposed
+#KEYSTONECLIENT_BRANCH=milestone-proposed
+#SWIFT_BRANCH=milestone-proposed
