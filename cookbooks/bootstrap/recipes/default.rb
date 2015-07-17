@@ -24,6 +24,14 @@ end
   end
 end
 
+execute "update-locale-ctype" do
+  command 'sudo update-locale LC_CTYPE=en_US.UTF-8'
+end
+
+execute "update-locale-all" do
+  command 'sudo update-locale LC_ALL=en_US.UTF-8'
+end
+
 user "stack" do
   supports :manage_home => true
   comment 'devstack user'
