@@ -7,8 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
-#template "/etc/apt/sources.list" do
-template "/etc/apt/sources.list.localrepository" do
+#template "/etc/apt/sources.list.localrepository" do
+template "/etc/apt/sources.list" do
   source 'sources.list.erb'
   mode '0644'
   owner 'root'
@@ -25,7 +25,8 @@ end
   end
 end
 
-%w{git bridge-utils ebtables}.each do |pkg|
+#%w{git bridge-utils ebtables}.each do |pkg|
+%w{git}.each do |pkg|
   package pkg do
     action :install
   end
