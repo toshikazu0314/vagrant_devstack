@@ -7,7 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
-template "/etc/apt/sources.list" do
+#template "/etc/apt/sources.list" do
+template "/etc/apt/sources.list.localrepository" do
   source 'sources.list.erb'
   mode '0644'
   owner 'root'
@@ -18,7 +19,13 @@ execute "apt-get" do
   command 'apt-get update'
 end
 
-%w{language-pack-en language-pack-ja git}.each do |pkg|
+%w{language-pack-en language-pack-ja}.each do |pkg|
+  package pkg do
+    action :install
+  end
+end
+
+%w{git bridge-utils ebtables}.each do |pkg|
   package pkg do
     action :install
   end
